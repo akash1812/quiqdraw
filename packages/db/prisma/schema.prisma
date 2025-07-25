@@ -12,3 +12,22 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String     @id     @default(uuid())
+  email     String
+  password  String
+  name      String
+  photo     String
+
+}
+
+model Room {
+  id        Int       @id     @default(autoincrement())
+  slug      String    @unique
+  createdAt DateTime  @default(now())
+} 
+
+model Chat {
+  id Int @id //tbc
+}
